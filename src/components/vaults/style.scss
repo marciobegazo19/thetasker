@@ -1,0 +1,44 @@
+@import "src/assets/scss/index";
+.main{
+    position: absolute;
+    left: 0;
+    padding-left: 17px;
+    padding-top: 50px;
+    .card{
+        padding: 0;
+        width: 300px;
+        .header{
+            display: flex;
+            justify-content: center;
+            background-color: $primary;
+            padding: 10px;
+        }
+        .card__body{
+            background-color: $secondary3;
+            .vault{
+                margin-top: 15px;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                background-color: $secondary2;
+                margin-left: 10px;
+                margin-right: 10px;
+                border-radius: 5px;
+                
+                .vault-title{
+                    
+                    color: $primary;
+                    font-weight: bolder;
+                    text-decoration: none;
+                    padding-left: 20px;
+                }
+            }
+            .vault:hover{
+                background-color: $secondary1;
+            }   
+        }
+       
+        
+    }
+    
+}

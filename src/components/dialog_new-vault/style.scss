@@ -1,0 +1,15 @@
+@import "./src/assets/scss/index";
+.dialog__input{
+  margin-top: 20px;
+  background-color: white;
+  border: solid $secondary2;
+  border-radius: 5px;
+  width: 75%;
+}
+.dialog__input:focus{
+  border: solid $secondary1;
+  outline: none;
+}
+.dialog__button:hover{
+  color: $secondary1;
+}

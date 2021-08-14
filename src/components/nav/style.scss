@@ -1,0 +1,39 @@
+@import "src/assets/scss/index";
+
+.nav-container{
+  height: 10%;
+  .navbar{
+    background-color: $primary;
+    .navbar__title{
+      padding: 10px;
+      margin-left: 10px;
+      .navbar__brand{
+        text-decoration: none;
+        color: $secondary2;
+        font-weight: bolder;
+        font-size: 20px;
+        animation: animation 3s infinite;
+        @keyframes animation {
+          50%{
+            color: $secondary1;
+          }
+        }
+      }
+    }
+    .menu{
+      margin-right: 20px;
+      .menu__item{
+        color: $secondary2;
+      }
+      .menu__item:hover{
+        color: $secondary1;
+      }
+    }
+  }
+}
+
+
+
+
+
+

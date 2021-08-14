@@ -1,0 +1,6 @@
+@import "./src/assets/scss/colors";
+.dialog__title{
+  display: flex;
+  justify-content: center;
+  background-color: $primary;
+}

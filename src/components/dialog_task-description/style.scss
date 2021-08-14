@@ -1,0 +1,8 @@
+@import "./src/assets/scss/index";
+.dialog__button:hover{
+  color: $secondary1;
+}
+.dialog__textarea:focus{
+  border: solid $secondary1;
+  outline: none;
+}

@@ -1,0 +1,51 @@
+@import "./src/assets/scss/index";
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .card{
+    width: 50%;
+    min-height: 75%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .menu{
+      border-radius: 5px;
+      margin-bottom: 20px;
+      .menu__item:hover{
+        color: $secondary1;
+      }
+      .new{
+        color: $secondary2;
+      }
+      .clean{
+        color: $secondary3;
+      }
+    }
+    .task__add{
+      text-decoration: none;
+      padding-right: 20px;
+      i.v-icon.v-icon{
+        color: $greenbutton;
+        size: 20px;
+      }
+      i.v-icon.v-icon:hover{
+        color: $greenbutton-hold;
+      }
+    }
+    .task__delete{
+      text-decoration: none;
+      padding-right: 20px;
+      i.v-icon.v-icon{
+        color: $redbutton;
+        size: 20px;
+      }
+      i.v-icon.v-icon:hover{
+        color: $redbutton-hold;
+      }
+    }
+  }
+
+}
+

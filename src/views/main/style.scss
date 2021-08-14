@@ -1,0 +1,45 @@
+@import "src/assets/scss/index";
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .card{
+    width: 50%;
+    min-height: 75%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    #empty-message{
+      visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #39C64D;
+      font-weight: bolder;
+      font-size: 15px;
+    }
+    .task__done{
+      text-decoration: none;
+      padding-right: 20px;
+      i.v-icon.v-icon{
+        color: $greenbutton;
+        size: 20px;
+      }
+      i.v-icon.v-icon:hover{
+        color: $greenbutton-hold;
+      }
+    }
+    .task__delete{
+      text-decoration: none;
+      padding-right: 20px;
+      i.v-icon.v-icon{
+        color: $yellowbutton;
+        size: 20px;
+      }
+      i.v-icon.v-icon:hover{
+        color: $yellowbutton-hold;
+      }
+    }
+  }
+
+}

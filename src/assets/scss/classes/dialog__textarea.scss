@@ -1,0 +1,10 @@
+@import "./src/assets/scss/colors";
+
+.dialog__textarea{
+  margin-top: 20px;
+  background-color: white;
+  border: solid $secondary2;
+  border-radius: 5px;
+  width: 80%;
+  height: 100px;
+}
