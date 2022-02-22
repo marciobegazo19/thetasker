@@ -2,7 +2,7 @@
     <div class="main">
         <div class="card">
             <div class="header">
-                <h3>Vaults</h3>
+                <h3 style="color:white">Vaults</h3>
             </div>
             <div class="card__body">
                 <div class="vault" v-for="vault in vaults" :key="vault">

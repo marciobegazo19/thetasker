@@ -1,0 +1,15 @@
+@import "./src/assets/scss/index";
+.welcome{
+    color: $primary;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    padding-top: 20px;
+    font-weight: bolder;
+}
+.body{
+    padding: 20px;
+}
+.dialog__button{
+  color: $secondary1;
+}

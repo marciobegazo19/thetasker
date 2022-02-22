@@ -7,7 +7,7 @@
             <div class="menu">
                 <div>
                     <a class="menu__item new" @click="newtask()">NEW TASK</a>
-                    <v-icon color="#0CECDD">mdi-plus</v-icon>
+                    <v-icon color="#FDCF12">mdi-plus</v-icon>
                 </div>
                 <div>
                     <a class="menu__item clean" @click="newvault()">New vault</a>

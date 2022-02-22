@@ -12,12 +12,6 @@
         color: $secondary2;
         font-weight: bolder;
         font-size: 20px;
-        animation: animation 3s infinite;
-        @keyframes animation {
-          50%{
-            color: $secondary1;
-          }
-        }
       }
     }
     .menu{
