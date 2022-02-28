@@ -1,6 +1,5 @@
 <template>
     <div class="main">
-        <vault></vault>
         <div class="card">
             <div class="card__header">
                 <h3>Today's List</h3>
@@ -28,16 +27,11 @@
 </template>
 
 <script>
-import Vault from '../../components/vaults/vaults.vue'
     import dialogdescription from '/src/components/dialog_task-description/task_description'
-    import vault from '/src/components/vaults/vaults'
     export default {
         name: 'main',
         components: {
-            dialogdescription,
-            vault,
-       
-                Vault },
+            dialogdescription,},
         data(){
             return{
                 dialog:false,
@@ -58,16 +52,18 @@ import Vault from '../../components/vaults/vaults.vue'
                 this.sign="today"
             },
             removeTask(task){
-                let backlog = JSON.parse(localStorage.getItem('backlog'))
-                if(backlog==null){
-                    backlog=[]
-                }else{
-                    backlog.push(task)
+                let backlog = JSON.parse(localStorage.getItem('vaults'))
+                for(let i=0;i<backlog.length;i++){
+                    if(backlog[i].text==task.notebook){
+                        backlog[i].backlog.push(task)
+                        this.$store.state.vault=backlog[i]
+                    }
                 }
-                localStorage.setItem("backlog", JSON.stringify(backlog));
+                localStorage.setItem("vaults", JSON.stringify(backlog));
                 this.doneTask(task.text)
+                
             },
-            doneTask(text){
+            doneTask(text){ 
                 for (let i=0;i<this.today.length;i++){
                     if(this.today[i].text==text){
                         this.today.splice(i,1)
@@ -83,6 +79,29 @@ import Vault from '../../components/vaults/vaults.vue'
             }else{
                 this.today=db
             }
+            let notes=JSON.parse(localStorage.getItem('vaults'))
+            if(notes==null){
+                notes=[]
+                var task={
+                text:"undefined",
+                backlog:[]
+            }
+                var tasky={
+                        text:"I have to create a new notebook",
+                        description:"This is my first task!",
+                        notebook:"My notebook"
+                    }
+                
+                task.text="My notebook"
+                task.backlog.push(tasky)
+                notes.push(task)
+                localStorage.setItem("vaults", JSON.stringify(notes));
+                let vaults = JSON.parse(localStorage.getItem('vaults'))
+            this.$store.state.vault=vaults[0]
+            }
+
+            
+            
         },
         mounted(){
             if(this.today.length==0){
@@ -97,7 +116,7 @@ import Vault from '../../components/vaults/vaults.vue'
                 document.getElementById("empty-message").style.paddingBottom='100px';
                 document.getElementById("empty-message").style.paddingTop='100px';
             }
-        }
+        },
     }
 </script>
 

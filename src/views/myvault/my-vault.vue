@@ -1,25 +1,24 @@
 <template>
     <div class="main">
+        <vault></vault>
         <div class="card">
-            <div class="card__header">
-                <h3>My Vault</h3>
-            </div>
             <div class="menu">
                 <div>
+                    
                     <a class="menu__item new" @click="newtask()">NEW TASK</a>
                     <v-icon color="#FDCF12">mdi-plus</v-icon>
-                </div>
-                <div>
-                    <a class="menu__item clean" @click="newvault()">New vault</a>
-                    <v-icon>mdi-folder-plus</v-icon>
                 </div>
                 <div>
                     <a class="menu__item clean" @click="cleanAll()">Clean all</a>
                     <v-icon>mdi-delete</v-icon>
                 </div>
+                <div>
+                    <a class="menu__item clean" @click="deletevault()">Delete vault</a>
+                    <v-icon>mdi-delete</v-icon>
+                </div>
             </div>
             <div class="card__body">
-                <div class="task" v-for="task in this.backlog" :key="task.text">
+                <div class="task" v-for="task in this.$store.state.vault.backlog" :key="task.text">
                     <a class="task__text" @click="openDescription(task)">{{task.text}}</a>
                     <div class="buttons">
                         <a class="task__add menu__item" @click="addToday(task)">
@@ -35,73 +34,88 @@
         </div>
         <dialognewtask :displayNewTask="this.dialog" :component="this.sign" v-on:displayDialogNewTask="incomeDialogNewTask"></dialognewtask>
         <dialogdescription :display="this.dialog2" :task="this.chosenTask" :component="this.sign" v-on:displayDialogEditDescription="incomeDialog"></dialogdescription>
-        <dialognewvault :displayNewTask="this.dialog3" v-on:displayDialogNewTask="incomeDialogvault"></dialognewvault>
+        
     </div>
 </template>
 
 <script>
+import Vault from '../../components/vaults/vaults.vue'
     import dialogdescription from '/src/components/dialog_task-description/task_description'
     import dialognewtask from '/src/components/dialog_new-task/new-task'
-    import dialognewvault from '/src/components/dialog_new-vault/new-vault'
+    
 export default {
     name: 'my-vault',
     components: {
         dialogdescription,
         dialognewtask,
-        dialognewvault
+        Vault
     },
-    data(){
+   data(){
         return{
             dialog:false,
             dialog2:false,
-            dialog3:false,
             text:undefined,
             chosenTask:undefined,
-            sign:"vault",
-            backlog:[],
+            sign:"vaulty",
+            vault:undefined
         }
     },
     methods:{
         incomeDialog(dialog){
             this.dialog2=dialog
         },
-        incomeDialogvault(dialog){
-            this.dialog3=dialog
-        },
         incomeDialogNewTask(dialog){
             this.dialog=dialog
-            let db = JSON.parse(localStorage.getItem('backlog'))
-            if(db==null){
-                this.backlog=[]
-            }else{
-                this.backlog=db
-            }
+            this.vault=this.$store.state.vault
+            this.save()
+        },
+        save(){
+            let db = JSON.parse(localStorage.getItem('vaults'))
+             for( var i = 0; i < db.length; i++){ 
+                if ( db[i].text === this.vault.text) { 
+                    db.splice(i, 1); 
+                }
+             }
+            db.push(this.vault)
+            localStorage.setItem("vaults", JSON.stringify(db));
+    
+    
         },
         openDescription(task){
             this.dialog2=true
             this.chosenTask=task
-            this.sign="vault"
+            this.sign="vaulty"
         }
         ,newtask(){
             this.dialog=true
 
         },
-        newvault(){
-            this.dialog3=true
-
-        },
         deleteTask(text){
-            for (let i=0;i<this.backlog.length;i++){
-                if(this.backlog[i].text==text){
-                    this.backlog.splice(i,1)
+            for (let i=0;i<this.$store.state.vault.backlog.length;i++){
+                if(this.$store.state.vault.backlog[i].text==text){
+                    this.$store.state.vault.backlog.splice(i,1)
                 }
             }
-            localStorage.setItem("backlog", JSON.stringify(this.backlog));
+            this.vault=this.$store.state.vault
+            this.save()
         },
         cleanAll(){
-            this.backlog=[]
-            localStorage.setItem("backlog", JSON.stringify(this.backlog));
+            let db =[]
+            this.$store.state.vault.backlog=db
+            this.save()
         },
+        deleteVault(){
+            let db = JSON.parse(localStorage.getItem('vaults'))
+             for( var i = 0; i < db.length; i++){ 
+                if ( db[i].text === this.vault.text) { 
+                    db.splice(i, 1); 
+                }
+             }
+             localStorage.setItem("vaults", JSON.stringify(db));
+             this.$router.push("/home")
+        },
+        
+        
         addToday(task){
             let today = JSON.parse(localStorage.getItem('today'))
             if(today==null){
@@ -113,15 +127,12 @@ export default {
             this.deleteTask(task.text)
         }
     },
-    created(){
-        let db = JSON.parse(localStorage.getItem('backlog'))
-        if(db==null){
-            this.backlog=[]
-        }else{
-            this.backlog=db
-        }
-
+    updated(){
+        this.vault=this.$store.state.vault
     },
+    created(){
+        this.vault=this.$store.state.vault
+    }
 }
 </script>
 

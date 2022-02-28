@@ -6,8 +6,8 @@
                     <a class="navbar__brand">Tasker</a>
                 </div>
                 <div class="menu">
-                    <a class="menu__item" @click="navigateHome()" >Home</a>
-                    <a class="menu__item" @click="navigateVault()">My Vault</a>
+                    <a class="menu__item" @click="navigateHome()" >Today</a>
+                    <a class="menu__item" @click="navigateVault()">Notebooks</a>
                 </div>
             </div>
             <dialogwelcome :display="this.dialog"  v-on:displayWelcome="incomeDialog"></dialogwelcome>

@@ -38,6 +38,7 @@ import vault from '/src/components/vaults/vaults';
                 var task={
                         text:undefined,
                         description:undefined,
+                        notebook:undefined
                     }
                 if(this.component==="vault"){
                     let db = JSON.parse(localStorage.getItem('backlog'))
@@ -57,6 +58,7 @@ import vault from '/src/components/vaults/vaults';
                     
                     task.text=this.text
                     task.description=""
+                    task.notebook=this.$store.state.vault.text
                     this.$store.state.vault.backlog.push(task)
                     this.text=""
                     this.$emit('displayDialogNewTask',this.dialog)
@@ -67,6 +69,7 @@ import vault from '/src/components/vaults/vaults';
             },
             exit(){
                 this.$emit('displayDialogNewTask',this.dialog)
+                console.log("si")
             }
         },
         updated(){
