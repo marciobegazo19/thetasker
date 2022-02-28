@@ -2,7 +2,7 @@
     <div class="main">
         <div class="card">
             <div class="card__header">
-                <h3>Today's List</h3>
+                <h3>Today's Lists</h3>
             </div>
             <div id="empty-message">
                 {{this.notasks}}
