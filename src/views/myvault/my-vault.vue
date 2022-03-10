@@ -131,8 +131,16 @@ export default {
         this.vault=this.$store.state.vault
     },
     created(){
-        this.vault=this.$store.state.vault
-    }
+        let db = JSON.parse(localStorage.getItem('vaults'))
+        if (this.$store.state.vault==null){
+            this.vault=db[0]
+            console.log(this.vault)
+        }else{
+            this.vault=this.$store.state.vault
+        }
+        
+        
+    }   
 }
 </script>
 

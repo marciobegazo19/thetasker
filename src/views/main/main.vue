@@ -96,11 +96,10 @@
                 task.backlog.push(tasky)
                 notes.push(task)
                 localStorage.setItem("vaults", JSON.stringify(notes));
-                let vaults = JSON.parse(localStorage.getItem('vaults'))
-            this.$store.state.vault=vaults[0]
+                
             }
-
-            
+            let vaults = JSON.parse(localStorage.getItem('vaults'))
+            this.$store.state.vault=vaults[0]
             
         },
         mounted(){

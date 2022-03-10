@@ -38,7 +38,7 @@
             },
         },
         created(){
-            let backlog = JSON.parse(localStorage.getItem('backlog'))
+            let backlog = JSON.parse(localStorage.getItem('vaults'))
                 if(backlog==null){
                     backlog=[]
                     this.dialog=true
