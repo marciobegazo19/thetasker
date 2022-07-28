@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card__body">
-                <div class="vault" v-for="vault in vaults" :key="vault">
+                <div class="vault" v-for="vault in vaults" :key="vault" name="vault">
                     <a class="vault-title"  @click="navigateVault(vault)">{{vault.text}}</a>
                 </div>
             </div>
@@ -30,13 +30,26 @@ import dialognewvault from '/src/components/dialog_new-vault/new-vault'
         },
         data:()=>({
             vaults:[],
-            
+            isSelected:"no",
             dialog3:false,
 
     }),
         methods:{
             navigateVault(selectedVault){
                 this.$store.state.vault=selectedVault
+                this.isSelected="si"
+                let btn = document.getElementsByName("vault")
+                //let btn = document.querySelector('#si')
+                console.log(btn)
+                console.log(selectedVault.text)
+                console.log("selected")
+                for(var i=0; i<=btn.length; i++){
+                    if(btn[i].outerText==selectedVault.text){
+                        btn[i].style.setProperty("background-color", "#0096FF")
+                    }else{
+                        btn[i].style.setProperty("background-color", "#72FFFF")
+                    }
+                }
                 
             },
             incomeDialogvault(dialog){

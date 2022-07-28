@@ -4,7 +4,6 @@
         <div class="card">
             <div class="menu">
                 <div>
-                    
                     <a class="menu__item new" @click="newtask()">NEW TASK</a>
                     <v-icon color="#FDCF12">mdi-plus</v-icon>
                 </div>
@@ -107,7 +106,7 @@ export default {
         deleteVault(){
             let db = JSON.parse(localStorage.getItem('vaults'))
             if(db.length==1){
-                print("No puedes quedarte sin vaults")
+                console.log("No puedes quedarte sin vaults")
                 return
             }
             for( var i = 0; i < db.length; i++){ 
@@ -115,7 +114,7 @@ export default {
                     db.splice(i, 1); 
                 }
              }
-            print("borrando vault")
+            console.log("borrando vault")
             localStorage.setItem("vaults", JSON.stringify(db));
             this.$router.push("/home")
         },
