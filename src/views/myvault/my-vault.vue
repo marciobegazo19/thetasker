@@ -13,7 +13,7 @@
                     <v-icon>mdi-delete</v-icon>
                 </div>
                 <div>
-                    <a class="menu__item clean" @click="deletevault()">Delete vault</a>
+                    <a class="menu__item clean" @click="deleteVault()">Delete vault</a>
                     <v-icon>mdi-delete</v-icon>
                 </div>
             </div>
@@ -106,13 +106,18 @@ export default {
         },
         deleteVault(){
             let db = JSON.parse(localStorage.getItem('vaults'))
-             for( var i = 0; i < db.length; i++){ 
+            if(db.length==1){
+                print("No puedes quedarte sin vaults")
+                return
+            }
+            for( var i = 0; i < db.length; i++){ 
                 if ( db[i].text === this.vault.text) { 
                     db.splice(i, 1); 
                 }
              }
-             localStorage.setItem("vaults", JSON.stringify(db));
-             this.$router.push("/home")
+            print("borrando vault")
+            localStorage.setItem("vaults", JSON.stringify(db));
+            this.$router.push("/home")
         },
         
         
