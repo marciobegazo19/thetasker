@@ -45,9 +45,11 @@ import dialognewvault from '/src/components/dialog_new-vault/new-vault'
                 console.log("selected")
                 for(var i=0; i<=btn.length; i++){
                     if(btn[i].outerText==selectedVault.text){
-                        btn[i].style.setProperty("background-color", "#0096FF")
+                        btn[i].style.setProperty("background-color", "#F14C86")
+                        btn[i].firstChild.style .setProperty("color","#FFF89C")
                     }else{
-                        btn[i].style.setProperty("background-color", "#72FFFF")
+                        btn[i].style.setProperty("background-color", "#FFF89C")
+                        btn[i].firstChild.style .setProperty("color","#B93160")
                     }
                 }
                 
