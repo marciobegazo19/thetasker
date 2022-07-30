@@ -31,6 +31,9 @@
                 </div>
             </div>
         </div>
+        <div class="divisor">
+
+        </div>
         <dialognewtask :displayNewTask="this.dialog" :component="this.sign" v-on:displayDialogNewTask="incomeDialogNewTask"></dialognewtask>
         <dialogdescription :display="this.dialog2" :task="this.chosenTask" :component="this.sign" v-on:displayDialogEditDescription="incomeDialog"></dialogdescription>
         

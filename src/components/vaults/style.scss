@@ -1,13 +1,12 @@
 @import "src/assets/scss/index";
 .main{
-    position: absolute;
-    left: 0;
-    padding-left: 17px;
-    padding-top: 50px;
+    display: flex;
     height: 80%;
+    margin-top: 5%;
+    width: 22.5%;
     .card{
         padding: 0;
-        width: 300px;
+        width: 100%;
         height: 90%;
         
         .header{
