@@ -2,20 +2,21 @@
     <v-dialog v-model="display" class="task-dialog" width="500px" @click:outside="exit">
         <v-card class="dialog__card">
             <div class=" welcome">
-                Welcome
+                ¡Bienvenido!
             </div>
             <div class="body">
-                Tasker is a tool for organization. Everything you need or have to do is a task or made of them so let's keep this in mind.
+                Tasker es una herramienta de organización. Todo lo que debes o necesitas hacer es una tarea, ten eso en cuenta.
             </div>
             <ul>
-                <li>My Vault saves every task you want to achieve sometime</li>
-                <li>Today's list have the tasks you added from My vault in it. You have to finish them today!</li>
-                <li>You can create specific vaults about whatever, for example: "College tasks"</li>
+                <li>En Notebooks podrás crear notebooks para anotar tareas y organizarte libremente.</li>
+                <li>En Lista diaria verás las tareas que añadiste de algún notebook y completarás hoy ¡Debes terminar antes que acabe el día!</li>
+                <li>Puedes crear notebooks con temáticas, por ejemplo: "Universidad" u "Hogar".</li>
+                <li>Puedes añadir descripciones a tus tareas haciendo click en ellas.</li>
             </ul>
             <v-divider style="margin: 0"></v-divider>
             <v-card-actions class="dialog__footer">
                 <div class="dialog__button">
-                    <a @click="exit()">Let's start!</a>
+                    <a @click="exit()">Empecemos</a>
                 </div>
             </v-card-actions>
         </v-card>

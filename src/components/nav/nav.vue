@@ -6,7 +6,7 @@
                     <a class="navbar__brand">Tasker</a>
                 </div>
                 <div class="menu">
-                    <a class="menu__item" @click="navigateHome()" >Today</a>
+                    <a class="menu__item" @click="navigateHome()" >Lista diaria</a>
                     <a class="menu__item" @click="navigateVault()">Notebooks</a>
                 </div>
             </div>

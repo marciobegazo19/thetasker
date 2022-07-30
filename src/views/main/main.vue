@@ -2,7 +2,7 @@
     <div class="main">
         <div class="card">
             <div class="card__header">
-                <h3>Today's Lists</h3>
+                <h3>Tareas del día</h3>
             </div>
             <div id="empty-message">
                 {{this.notasks}}
@@ -39,7 +39,7 @@
                 dialog2:false,
                 chosenTask:undefined,
                 sign:"today",
-                notasks:"You have finished everything for today!... or maybe you haven't started",
+                notasks:"¡Has terminado todo por hoy! ...o quizás aún no has comenzado.",
             }
         },
         methods:{
@@ -87,12 +87,12 @@
                 backlog:[]
             }
                 var tasky={
-                        text:"I have to create a new notebook",
-                        description:"This is my first task!",
+                        text:"Tengo que añadir una nueva tarea",
+                        description:"¡Esta es mi primera tarea!",
                         notebook:"My notebook"
                     }
                 
-                task.text="My notebook"
+                task.text="Mi primer notebook"
                 task.backlog.push(tasky)
                 notes.push(task)
                 localStorage.setItem("vaults", JSON.stringify(notes));

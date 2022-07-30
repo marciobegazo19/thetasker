@@ -2,7 +2,7 @@
     <v-dialog v-model="display" class="task-dialog" width="500px" @click:outside="exit">
         <v-card class="dialog__card">
             <v-card-title class="text-h5 dialog__title">
-                Edit description
+                Editar descripción
             </v-card-title>
             <v-card-text class="dialog__body">
                 <textarea class="dialog__textarea" v-model="task.description"></textarea>
@@ -10,7 +10,7 @@
             <v-divider style="margin: 0"></v-divider>
             <v-card-actions class="dialog__footer">
                 <div class="dialog__button">
-                    <a @click="editDescription()">Done</a>
+                    <a @click="editDescription()">Hecho</a>
                 </div>
             </v-card-actions>
         </v-card>

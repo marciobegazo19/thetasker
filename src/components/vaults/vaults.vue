@@ -7,7 +7,7 @@
                 </div>
                 
                 <div class="header__button">
-                    <a class="menu__item clean" @click="newvault()">New notebook</a>
+                    <a class="menu__item clean" @click="newvault()">Nuevo notebook</a>
                     <v-icon>mdi-folder-plus</v-icon>
                 </div>
             </div>
@@ -69,7 +69,9 @@ import dialognewvault from '/src/components/dialog_new-vault/new-vault'
             },
         },
         updated(){
-            
+            let btn = document.getElementsByName("vault")
+            btn[0].style.setProperty("background-color", "#F14C86")
+            btn[0].firstChild.style .setProperty("color","#FFF89C")
         },
         created(){
             let db = JSON.parse(localStorage.getItem('vaults'))
@@ -78,7 +80,14 @@ import dialognewvault from '/src/components/dialog_new-vault/new-vault'
             }else{
                 this.vaults=db
             }
+
+            
         },
+        mounted(){
+            let btn = document.getElementsByName("vault")
+            btn[0].style.setProperty("background-color", "#F14C86")
+            btn[0].firstChild.style .setProperty("color","#FFF89C")
+        }
     }
 </script>
 
