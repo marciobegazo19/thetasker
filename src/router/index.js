@@ -5,6 +5,7 @@ import myvault from '/src/views/myvault/my-vault'
 Vue.use(VueRouter)
 
 const routes = [
+    {path: '/', name: 'main', component: main},
     {path: '/home', name: 'main', component: main},
     {path: '/myvault', name: 'my-vault', component: myvault},
 ]
