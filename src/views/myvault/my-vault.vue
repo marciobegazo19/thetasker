@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="card__body">
-                <div class="task" v-for="task in this.vault.backlog" :key="task.text">
+                <div class="task" v-for="task in this.$store.state.vault.backlog" :key="task.text">
                     <a class="task__text" @click="openDescription(task)">{{task.text}}</a>
                     <div class="buttons">
                         <a class="task__add menu__item" @click="addToday(task)">
