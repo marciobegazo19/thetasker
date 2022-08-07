@@ -42,8 +42,8 @@
 
 <script>
 import Vault from '../../components/vaults/vaults.vue'
-    import dialogdescription from '/src/components/dialog_task-description/task_description'
-    import dialognewtask from '/src/components/dialog_new-task/new-task'
+import dialogdescription from '/src/components/dialog_task-description/task_description'
+import dialognewtask from '/src/components/dialog_new-task/new-task'
     
 export default {
     name: 'my-vault',
@@ -149,12 +149,13 @@ export default {
         let db = JSON.parse(localStorage.getItem('vaults'))
         if (this.$store.state.vault==null){
             this.vault=db[0]
-            console.log(this.vault)
+            this.$store.state.vault=this.vault
         }else{
             this.vault=this.$store.state.vault
         }
     },
     created(){
+        console.log("created")
         let db = JSON.parse(localStorage.getItem('vaults'))
         if (this.$store.state.vault==null){
             this.vault=db[0]
